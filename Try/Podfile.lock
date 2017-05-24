@@ -1,0 +1,19 @@
+PODS:
+  - Cooking (1.1.1)
+  - SQITools (1.0.1):
+    - Cooking
+
+DEPENDENCIES:
+  - SQITools (from `../`)
+
+EXTERNAL SOURCES:
+  SQITools:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Cooking: c1192f70cc89e41ea40873f56e18e3f4f0f2e01b
+  SQITools: 74edbc13f351b3124ae6c405bc90f8762eceff45
+
+PODFILE CHECKSUM: fed91dc1734a5a55d93371ac87acc66a40b56900
+
+COCOAPODS: 1.2.1

@@ -3,13 +3,13 @@
 //  SQITools
 //
 //  Created by Shane Qi on 3/22/17.
-//  Copyright © 2017 Wedding.com. All rights reserved.
+//  Copyright © 2017 Shane Qi. All rights reserved.
 //
 
 import UIKit
 import Cooking
 
-public extension UIColor: Edible {}
+extension UIColor: Edible {}
 
 public extension Cooking where Ingredient: UIColor {
 
@@ -32,5 +32,5 @@ public extension Cooking where Ingredient: UIColor {
 
 		return image
 	}
-	
+
 }

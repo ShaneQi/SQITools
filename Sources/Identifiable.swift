@@ -3,7 +3,7 @@
 //  SQITools
 //
 //  Created by Shane Qi on 4/10/17.
-//  Copyright © 2017 shaneqi. All rights reserved.
+//  Copyright © 2017 Shane Qi. All rights reserved.
 //
 
 public protocol Identifiable: class {
