@@ -18,6 +18,6 @@ public protocol HavingNib: Identifiable {
 public extension HavingNib {
 
 	static var nibName: String { return identifier }
-	static var nib: UINib { return UINib(nibName: nibName, bundle: nil) }
+	static var nib: UINib { return UINib(nibName: nibName, bundle: Bundle(for: Self.self)) }
 
 }
