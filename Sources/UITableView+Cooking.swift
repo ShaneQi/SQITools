@@ -24,7 +24,7 @@ public extension Cooking where Ingredient: UITableView {
 		return castedCell
 	}
 
-	public func dequeueReusableCell<Cell>(for indexPath: IndexPath) -> Cell?
+	public func dequeueReusableCell<Cell>(for indexPath: IndexPath) -> Cell
 		where Cell: Identifiable, Cell: UITableViewCell {
 			let cell = ingredient.dequeueReusableCell(withIdentifier: Cell.identifier, for: indexPath)
 			guard let castedCell = cell as? Cell else {
