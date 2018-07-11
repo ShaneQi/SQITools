@@ -13,6 +13,26 @@ extension UICollectionView: Edible {}
 
 public extension Cooking where Ingredient: UICollectionView {
 
+	public func register<Cell>(_ cellClass: Cell.Type) where Cell: UICollectionViewCell, Cell: Identifiable {
+		ingredient.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
+	}
+
+	public func register<Cell>(_ cellClass: Cell.Type) where Cell: UICollectionViewCell, Cell: HavingNib {
+		ingredient.register(Cell.nib, forCellWithReuseIdentifier: Cell.identifier)
+	}
+
+	public func register<ReusableView>(_ reusableViewClass: ReusableView.Type, ofKind kind: String)
+		where ReusableView: UICollectionReusableView, ReusableView: Identifiable {
+			ingredient.register(ReusableView.self, forSupplementaryViewOfKind: kind,
+								withReuseIdentifier: ReusableView.identifier)
+	}
+
+	public func register<ReusableView>(_ reusableViewClass: ReusableView.Type, ofKind kind: String)
+		where ReusableView: UICollectionReusableView, ReusableView: HavingNib {
+			ingredient.register(ReusableView.nib, forSupplementaryViewOfKind: kind,
+								withReuseIdentifier: ReusableView.identifier)
+	}
+
 	public func dequeueReusableCell<Cell>(for indexPath: IndexPath) -> Cell
 		where Cell: Identifiable, Cell: UICollectionViewCell {
 			guard let cell = ingredient.dequeueReusableCell(

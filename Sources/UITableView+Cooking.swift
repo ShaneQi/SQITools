@@ -13,15 +13,22 @@ extension UITableView: Edible {}
 
 public extension Cooking where Ingredient: UITableView {
 
-	public func dequeueReusableCell<Cell>() -> Cell? where Cell: Identifiable, Cell: UITableViewCell {
-		guard let cell = ingredient.dequeueReusableCell(withIdentifier: Cell.identifier) else {
-			return nil
-		}
-		guard let castedCell = cell as? Cell else {
-			fatalError("Failed to dequeue a cell of type: \(String(describing: Cell.self)). " +
-				"Please check how the cell was registered or check the cell type in interface build.")
-		}
-		return castedCell
+	public func register<Cell>(_ cellClass: Cell.Type) where Cell: Identifiable, Cell: UITableViewCell {
+		ingredient.register(Cell.self, forCellReuseIdentifier: Cell.identifier)
+	}
+
+	public func register<Cell>(_ cellClass: Cell.Type) where Cell: HavingNib, Cell: UITableViewCell {
+		ingredient.register(Cell.nib, forCellReuseIdentifier: Cell.identifier)
+	}
+
+	public func register<HeaderFooterView>(_ headerFooterClass: HeaderFooterView.Type)
+		where HeaderFooterView: Identifiable, HeaderFooterView: UITableViewHeaderFooterView {
+		ingredient.register(HeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderFooterView.identifier)
+	}
+
+	public func register<HeaderFooterView>(_ headerFooterClass: HeaderFooterView.Type)
+		where HeaderFooterView: HavingNib, HeaderFooterView: UITableViewHeaderFooterView {
+			ingredient.register(HeaderFooterView.nib, forCellReuseIdentifier: HeaderFooterView.identifier)
 	}
 
 	public func dequeueReusableCell<Cell>(for indexPath: IndexPath) -> Cell
