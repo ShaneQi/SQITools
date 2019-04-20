@@ -11,7 +11,7 @@ import Cooking
 
 extension UICollectionView: Edible {}
 
-public extension Cooking where Ingredient: UICollectionView {
+extension Cooking where Ingredient: UICollectionView {
 
 	public func register<Cell>(_ cellClass: Cell.Type) where Cell: UICollectionViewCell, Cell: Identifiable {
 		ingredient.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)

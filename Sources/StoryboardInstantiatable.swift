@@ -25,7 +25,7 @@ public extension StoryboardInstantiatable {
     static var storyboardName: String {
         let className = String(describing: Self.self)
         let suffixBeginIndex = className.index(className.endIndex, offsetBy: -14)
-        return className.substring(to: suffixBeginIndex)
+        return String(className.prefix(upTo: suffixBeginIndex))
     }
 
     /// The view controller must be the initial view controller of the storyboard.
