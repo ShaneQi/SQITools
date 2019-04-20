@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SQITools"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "Shane's essential tools for iOS developing."
   s.description  = <<-DESC
     Shane's essential tools for iOS developing.
