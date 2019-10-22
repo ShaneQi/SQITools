@@ -28,12 +28,17 @@ public extension StoryboardInstantiatable {
         return String(className.prefix(upTo: suffixBeginIndex))
     }
 
+	/// The `UIStoryboard` instance that is found based on the `storyboadName`.
+	static var storyboard: UIStoryboard {
+		return UIStoryboard(name: Self.storyboardName, bundle: nil)
+	}
+
     /// The view controller must be the initial view controller of the storyboard.
     /// In order to adopt this default implementation, the view controller must be a `final class`.
     ///
     /// - Returns: the view controller instance inited from storyboard.
     static func getInstance() -> Self {
-        guard let viewController =  UIStoryboard(name: Self.storyboardName, bundle: nil)
+        guard let viewController = storyboard
             .instantiateInitialViewController() as? Self else {
             fatalError("Failed to init the view controller.")
         }
